@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import './Header.css';
 
 class Header extends Component {
   render() {
     return (
-      <div>Header</div>
+      <div className="headerContainer">
+        <p className="headerText">TrybeWallet</p>
+      </div>
     );
   }
 }
