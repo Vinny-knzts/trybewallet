@@ -1,3 +1,8 @@
 .tableConteiner {
   width: 100%;
 }
+
+.removeButton {
+  background-color: red;
+  margin-left: 5px;
+}

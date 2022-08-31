@@ -9,6 +9,7 @@ class WalletForm extends Component {
     super();
 
     this.state = {
+      id: 0,
       value: '',
       description: '',
       currency: 'USD',
@@ -24,9 +25,9 @@ class WalletForm extends Component {
 
   render() {
     const { currencies, expenses, dispatch } = this.props;
-    const { value, description, currency, method, tag } = this.state;
+    const { id, value, description, currency, method, tag } = this.state;
     return (
-      <div className="walletFormContainer">
+      <div className="walletFormContainer" id="walletForm">
         <label htmlFor="valueInput">
           Valor:
           <input
@@ -90,7 +91,6 @@ class WalletForm extends Component {
         <button
           type="button"
           onClick={ () => {
-            const id = expenses.length;
             const newExpense = {
               id,
               value,
@@ -100,7 +100,7 @@ class WalletForm extends Component {
               tag,
             };
             dispatch(fetchExpense(newExpense, expenses));
-            this.setState({ value: '', description: '' });
+            this.setState({ id: (id + 1), value: '', description: '' });
           } }
         >
           Adicionar despesa

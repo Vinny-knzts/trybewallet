@@ -28,3 +28,27 @@ export function fetchExpense(newExpense, oldExpenses) {
     dispatch(expensesAction(newExpenses));
   };
 }
+
+export function removeExpense(expenses, expenseToRemove) {
+  const newExpenses = expenses.filter((expense) => expense.id !== expenseToRemove);
+  return (dispatch) => {
+    dispatch(expensesAction(newExpenses));
+  };
+}
+
+export function editExpense(expenses, expenseToEdit, newValues) {
+  const newExpenses = expenses.map((expense) => {
+    if (expense.id === expenseToEdit) {
+      expense.value = newValues.value;
+      expense.description = newValues.description;
+      expense.currency = newValues.currency;
+      expense.method = newValues.method;
+      expense.tag = newValues.tag;
+      return expense;
+    }
+    return expense;
+  });
+  return (dispatch) => {
+    dispatch(expensesAction(newExpenses));
+  };
+}
