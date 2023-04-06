@@ -45,7 +45,7 @@ class Login extends React.Component {
           disabled={ passwordValue.length < minPassword + !emailValue.match(/.+@.+\.com$/) }
           onClick={ () => {
             dispatch(loginAction(emailValue));
-            history.push('/carteira');
+            history.push('/trybewallet/carteira');
           } }
         >
           Entrar
